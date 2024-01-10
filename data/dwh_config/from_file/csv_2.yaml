@@ -1,0 +1,7 @@
+file_name: 'course_category.csv'
+format: 'csv'
+table_id: 'dim_course_category'
+schema: [
+  {'name': 'id', 'type': 'STRING', 'mode': 'REQUIRED'},
+  {'name': 'type', 'type': 'STRING'}
+]   

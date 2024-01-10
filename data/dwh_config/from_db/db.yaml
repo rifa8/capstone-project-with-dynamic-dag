@@ -1,0 +1,5 @@
+table_id: 'fact_course_enrollment'
+schema: [
+  {'name': 'student_id', 'type': 'STRING', 'mode': 'REQUIRED'},
+  {'name': 'course_id', 'type': 'STRING', 'mode': 'REQUIRED'}
+]

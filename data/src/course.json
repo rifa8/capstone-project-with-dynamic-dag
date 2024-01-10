@@ -1,0 +1,116 @@
+[
+    {
+        "id": "3D983AD4-89A2-962D-7BE7-B5C7FB437F36",
+        "title": "front-end engineer with react for beginner",
+        "mentor_id": "847DDCF5-830B-4759-A994-CAD5A4D45CF3",
+        "course_category_id": "E5B8A4EE-E915-6F21-0DE2-BFBE383614DD"
+    },
+    {
+        "id": "26B4D916-26A2-2DE9-15EC-29C9D3A56441",
+        "title": "backend-engineer with django for intermediate",
+        "mentor_id": "C21247C6-4DB5-7845-14B7-AD27EA6B1BAE",
+        "course_category_id": "E5B8A4EE-E915-6F21-0DE2-BFBE383614DD"
+    },
+    {
+        "id": "D3E85D26-7D6D-B272-F3AB-397726178CA8",
+        "title": "how to run airflow using astronomer",
+        "mentor_id": "28A66369-8A69-4FE5-E6EB-4F8237612C4B",
+        "course_category_id": "2B46AC6E-BB34-5F67-B74C-5065B4EC73F7"
+    },
+    {
+        "id": "7C309D25-C42A-21A1-39E6-E88DE8A7D58E",
+        "title": "data analysis 101",
+        "mentor_id": "A7C91FB6-BE23-5DB6-7B57-BED3D5FB35F3",
+        "course_category_id": "2B46AC6E-BB34-5F67-B74C-5065B4EC73F7"
+    },
+    {
+        "id": "278BC585-6A05-3859-5E4A-D49DD567AD59",
+        "title": "100 stories of mindfullness",
+        "mentor_id": "934CA9EC-4B16-133A-A4A1-F577B2F6963C",
+        "course_category_id": "065D39AD-F716-E7DA-49C4-FEBC9D7FB222"
+    },
+    {
+        "id": "7D6928A7-61EF-1207-8FB1-E6595DA482A0",
+        "title": "breakdown atomic habbit into tech life",
+        "mentor_id": "7AA9462B-55DF-2437-896E-E9B4AE6EB3EC",
+        "course_category_id": "065D39AD-F716-E7DA-49C4-FEBC9D7FB222"
+    },
+    {
+        "id": "3661EC34-A3C4-219D-F672-AB5D41625B85",
+        "title": "SEO optimization 101",
+        "mentor_id": "489D67E0-867C-4145-443B-C4747030C2FA",
+        "course_category_id": "EA786-C96B-A949-4A25-D7253B47574B"
+    },
+    {
+        "id": "27038A1B-B615-382D-E334-7B7A96D94A67",
+        "title": "dive deep into digital marketing",
+        "mentor_id": "9132E77A-74CC-DF12-37F2-C49DD023DEB7",
+        "course_category_id": "EA786-C96B-A949-4A25-D7253B47574B"
+    },
+    {
+        "id": "E297C2AD-B3A2-C957-1393-2FF253C76E45",
+        "title": "investing without risk",
+        "mentor_id": "E09033AD-E61C-7D55-5475-E52419CC4E7D",
+        "course_category_id": "1DFB193A-3C55-79C1-9CC6-313EAC04AF2E"
+    },
+    {
+        "id": "23D9C695-9325-EC95-EB84-4B79C1B8E357",
+        "title": "say no to crypto!",
+        "mentor_id": "E582ABC9-3CAF-0513-C559-693712ECE40C",
+        "course_category_id": "1DFB193A-3C55-79C1-9CC6-313EAC04AF2E"
+    },
+    {
+        "id": "E9EC654A-1A2A-D84B-1801-5BB8122F739C",
+        "title": "invest like warren buffett",
+        "mentor_id": "E582ABC9-3CAF-0513-C559-693712ECE40C",
+        "course_category_id": "1DFB193A-3C55-79C1-9CC6-313EAC04AF2E"
+    },
+    {
+        "id": "AB4707D3-2C88-72FE-A139-D481285E1433",
+        "title": "financial freedom before 30",
+        "mentor_id": "E09033AD-E61C-7D55-5475-E52419CC4E7D",
+        "course_category_id": "1DFB193A-3C55-79C1-9CC6-313EAC04AF2E"
+    },
+    {
+        "id": "A65D8DD7-62A9-E748-FE14-28E152E580F0",
+        "title": "mastering digital marketing in multiple tools",
+        "mentor_id": "6E4EC731-371A-BD3D-29EB-B6C9D7CEC04B",
+        "course_category_id": "EA786-C96B-A949-4A25-D7253B47574B"
+    },
+    {
+        "id": "74DC56DB-C072-D913-44F7-15A9F9FE33B3",
+        "title": "history of SEO and how to optimize it",
+        "mentor_id": "8FAC97A8-6922-D8D8-DC01-BCB7A0DD5FFD",
+        "course_category_id": "EA786-C96B-A949-4A25-D7253B47574B"
+    },
+    {
+        "id": "C25628ED-4CB8-079A-E3E1-6709B307751F",
+        "title": "mastering psychology tips for job interview",
+        "mentor_id": "5DED2EA6-CFD9-CB1A-0B4E-ADDAF4638D29",
+        "course_category_id": "065D39AD-F716-E7DA-49C4-FEBC9D7FB222"
+    },
+    {
+        "id": "A1E1AF40-11A5-77D2-DF62-C37823F154FD",
+        "title": "deal with asymmetric distribution data",
+        "mentor_id": "D27D9184-9918-7E0C-A11E-E30BD381798E",
+        "course_category_id": "2B46AC6E-BB34-5F67-B74C-5065B4EC73F7"
+    },
+    {
+        "id": "71438222-95CD-6BC9-EF14-03A2DE7DACCF",
+        "title": "don't be afraid of statistics",
+        "mentor_id": "D27D9184-9918-7E0C-A11E-E30BD381798E",
+        "course_category_id": "2B46AC6E-BB34-5F67-B74C-5065B4EC73F7"
+    },
+    {
+        "id": "E6F8F1B9-873C-F21C-6A79-4D5C9C46E80E",
+        "title": "frontend-engineer with Vue.js for beginner",
+        "mentor_id": "3047FB0B-D86D-870D-6C69-14E1ECB7EA54",
+        "course_category_id": "E5B8A4EE-E915-6F21-0DE2-BFBE383614DD"
+    },
+    {
+        "id": "66A65D88-B636-9E98-F705-43401AB069C5",
+        "title": "Vue.js vs React.js",
+        "mentor_id": "3047FB0B-D86D-870D-6C69-14E1ECB7EA54",
+        "course_category_id": "E5B8A4EE-E915-6F21-0DE2-BFBE383614DD"
+    }
+]

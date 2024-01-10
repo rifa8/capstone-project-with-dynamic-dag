@@ -1,0 +1,8 @@
+file_name: 'mentor.csv'
+format: 'csv'
+table_id: 'dim_mentor'
+schema: [
+  {'name': 'id', 'type': 'STRING', 'mode': 'REQUIRED'},
+  {'name': 'first_name', 'type': 'STRING'},
+  {'name': 'last_name', 'type': 'STRING'}
+]
