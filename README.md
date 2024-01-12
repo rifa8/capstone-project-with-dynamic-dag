@@ -127,7 +127,8 @@ with DAG (
     start_date=datetime(2024, 1, 8),
     # catchup=False
 ) as dag:
-
+```
+```
 with DAG (
     'dag_etl_to_datamart',
     description='Create datamart from dwh in BigQuery',
@@ -142,7 +143,7 @@ Script lengkapnya bisa dilihat di [dag_etl_to_dwh.py](dags/dag_etl_to_dwh.py) da
 ```
 docker compose up -d
 ```
-lalu buka localhost:8080 untuk mengakses airflow. 
+lalu buka ```localhost:8080``` untuk mengakses airflow. 
 ```
 Username: airflow
 Password: airflow
@@ -151,7 +152,7 @@ Password: airflow
 
 ### 9. Set connection pada airflow
 
-Buka ```Admin >> Connecitons``` pada UI airflow, lalu tambah connection. Pada project ini terdapat 2 connections, yaitu ```t_bq``` untuk koneksi ke bigquery dan ```pg_conn``` untuk koneksi ke database postgres.
+Buka ```Admin >> Connecitons``` pada UI airflow, lalu tambah connection. Pada project ini terdapat 2 connections, yaitu ```to_bq``` untuk koneksi ke bigquery dan ```pg_conn``` untuk koneksi ke database postgres.
 ![to_bq](imgs/conn.png)
 ![pg_conn](imgs/pg_conn.png)
 
