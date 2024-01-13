@@ -9,13 +9,6 @@ mkdir data/dwh_config/from_file
 mkdir data/src
 ```
 
-Buat virtual environment dan install requirements 
-```
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
 ### 2. Masukkan data source ke direktori src
 ![src](imgs/src.png)
 
