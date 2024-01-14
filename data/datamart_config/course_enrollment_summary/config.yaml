@@ -1,40 +1,38 @@
-dataset: 'datamart'
-table_id: 'course_enrollment_summary'
-schema: [
-  {'name': 'course_category_id', 'type': 'STRING'},
-  {'name': 'course_type', 'type': 'STRING'},
-  {'name': 'course_id', 'type': 'STRING'},
-  {'name': 'course_title', 'type': 'STRING'},
-  {'name': 'student_id', 'type': 'STRING'},
-  {'name': 'student_name', 'type': 'STRING'},
-  {'name': 'city', 'type': 'STRING'},
-  {'name': 'mentor_id', 'type': 'STRING'},
-  {'name': 'mentor_name', 'type': 'STRING'}
-]
-external_task_dependencies: [
-  {
-    'dag_id': 'dag_etl_to_dwh',
-    'task_id': 'from_db',
-    'minutes_delta': 60
-  },
-  {
-    'dag_id': 'dag_etl_to_dwh',
-    'task_id': 'from_csv_1',
-    'minutes_delta': 60
-  },
-  {
-    'dag_id': 'dag_etl_to_dwh',
-    'task_id': 'from_csv_2',
-    'minutes_delta': 60
-  },
-  {
-    'dag_id': 'dag_etl_to_dwh',
-    'task_id': 'from_json_1',
-    'minutes_delta': 60
-  },
-  {
-    'dag_id': 'dag_etl_to_dwh',
-    'task_id': 'from_json_2',
-    'minutes_delta': 60
-  }
-]
+dataset: datamart
+table_id: course_enrollment_summary
+schema:
+  - name: course_category_id
+    type: STRING
+  - name: course_type
+    type: STRING
+  - name: course_id
+    type: STRING
+  - name: course_title
+    type: STRING
+  - name: student_id
+    type: STRING
+  - name: student_name
+    type: STRING
+  - name: city
+    type: STRING
+  - name: mentor_id
+    type: STRING
+  - name: mentor_name
+    type: STRING
+external_task_dependencies:
+  - dag_id: dag_etl_to_dwh
+    task_id: from_db
+    minutes_delta: 60
+  - dag_id: dag_etl_to_dwh
+    task_id: from_csv_1
+    minutes_delta: 60
+  - dag_id: dag_etl_to_dwh
+    task_id: from_csv_2
+    minutes_delta: 60
+  - dag_id: dag_etl_to_dwh
+    task_id: from_json_1
+    minutes_delta: 60
+  - dag_id: dag_etl_to_dwh
+    task_id: from_json_2
+    minutes_delta: 60
+  

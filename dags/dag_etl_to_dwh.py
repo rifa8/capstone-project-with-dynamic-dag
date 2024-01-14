@@ -32,7 +32,7 @@ with DAG (
     'dag_etl_to_dwh',
     description='ETL to dataset dwh in Bigquery',
     schedule_interval='0 1 * * *',
-    start_date=datetime(2024, 1, 8),
+    start_date=datetime(2024, 1, 12),
     # catchup=False
 ) as dag:
 

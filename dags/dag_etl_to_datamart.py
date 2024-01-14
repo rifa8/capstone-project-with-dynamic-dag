@@ -36,7 +36,7 @@ with DAG (
     'dag_etl_to_datamart',
     description='Create datamart from dwh in BigQuery',
     schedule_interval='0 2 * * *',
-    start_date=datetime(2024, 1, 8),
+    start_date=datetime(2024, 1, 12),
     # catchup=False
 ) as dag:
 
