@@ -17,12 +17,13 @@ Therefore, the information that has been stored in different sources to date is 
 ![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat-square)
 ![Cloud-Shell](https://img.shields.io/badge/Cloud-Shell-blue?logo=googlecloud)
 ![Phyton](https://img.shields.io/badge/Phyton-white?logo=python)
+![Postgres](https://img.shields.io/badge/Postgres-white?logo=postgresql)
 
 ![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=for-the-badge)
 ![Google BigQuery Badge](https://img.shields.io/badge/Google%20BigQuery-669DF6?logo=googlebigquery&logoColor=fff&style=for-the-badge)
 
 ## ERD
-
+![ERD](imgs/erd.png)
 
 ## Flowchart Project
 ![flowchart](imgs/flowchart.png)
@@ -69,7 +70,7 @@ task_wait_ext_task = ExternalTaskSensor(
 
 ![datamart](imgs/dag-datamart.png)
 
-Cek tables in BigQuery
+Check tables in BigQuery
 
 Dataset dwh
 ![dwh](imgs/dwh.png)
