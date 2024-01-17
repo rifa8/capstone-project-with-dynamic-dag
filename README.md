@@ -1,158 +1,59 @@
-### 1. Buat direktori data dan direktori direktori lain di dalamnya
+# Capstone Project Brief Data Engineering Team D ("The Future")
+
+## Constraints
+
+- Separate data comes from multiple sources such as databases, CSV and JSON.
+- Constraints for each problem will be specifically defined in the project description section.
+
+## About the Project
+
+### Background
+An edu-tech platform called "pinter-skuy" provides online courses facilitated by professional mentors, and anyone can enroll in these courses. As the business gains momentum, the management level aims to conduct monitoring and evaluation of their online courses.
+
+Therefore, the information that has been stored in different sources to date is intended to be consolidated into a **_single source of truth_** for subsequent analysis.
+
+## Tools and Framework
+![Github Badge](https://img.shields.io/badge/Github-black?logo=github)
+![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat-square)
+![Cloud-Shell](https://img.shields.io/badge/Cloud-Shell-blue?logo=googlecloud)
+![Phyton](https://img.shields.io/badge/Phyton-white?logo=python)
+
+![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=for-the-badge)
+![Google BigQuery Badge](https://img.shields.io/badge/Google%20BigQuery-669DF6?logo=googlebigquery&logoColor=fff&style=for-the-badge)
+
+## ERD
+
+
+## Flowchart Project
+![flowchart](imgs/flowchart.png)
+
+## Running Project
 ```
-mkdir data
-mkdir data/datamart_config
-mkdir data/datamart_config/course_enrollment_summary
-mkdir data/dwh_config
-mkdir data/dwh_config/from_db
-mkdir data/dwh_config/from_file
-mkdir data/src
-```
-
-### 2. Masukkan data source ke direktori src
-![src](imgs/src.png)
-
-### 3. Buat script [etl_to_dwh.py](data/etl_to_dwh.py) dan [etl_to_datamart.py](data/etl_to_datamart.py)
-
-Script ```etl_to_dwh.py``` digunakan untuk membuat fungsi yang dapat digunakan kembali (reusable) untuk berbagai format file. Di dalam script tersebut terdapat fungsi ```extract(path, format), extract_from_pg() dan load_to_bq(df, table_id, schema)``` yang bisa dijalankan dengan mengimport fungsi ```main``` atau ```main_2```.
-
-```
-def main(path, format, table_id, schema):
-    df = extract(path, format)
-    load_to_bq(df, table_id, schema)
-
-def main_2(table_id, schema):
-    df = extract_from_pg()
-    load_to_bq(df, table_id, schema)
-```
-
-Sama seperti ```etl_to_dwh.py``` , script ```etl_to_datamart.py``` dibuat agar fungsi di dalamnya bisa digunakan kembali jika ingin membuat table datamart lainnya. Di dalam ```etl_to_datamart.py``` terdapat fungsi ```run_query(query, credentials)``` dan ```create_datamart_table(df, credentials, dataset, table_id, schema)``` yang bisa digunakan dengan mengimport fungsi ```main```
-```
-def main(query, dataset, table_id, schema):
-    conn = Connection.get_connection_from_secrets(conn_id='to_bq')
-    credentials = service_account.Credentials.from_service_account_info(json.loads(conn.extra_dejson['keyfile_dict']))
-    credentials = credentials.with_scopes(["https://www.googleapis.com/auth/cloud-platform"])
-    
-    df = run_query(query, credentials)
-    create_datamart_table(df, credentials, dataset, table_id, schema)
+git clone https://github.com/rifa8/capstone-project-with-dynamic-dag
 ```
 
-### 4. Buat file dengan extensi .yaml untuk menyimpan konfigurasi yang dibutuhkan oleh fungsi - fungsi yang dibuat sebelumnya dan file .sql untuk membuat query yang dibutuhkan untuk membuat table di datamart
-
-Untuk data-source yang berasal dari file di local, bisa membuat file .yaml dengan format nama ```[format file]_[nomor file].yaml```. Lalu di dalamnya di input parameter yang dibutuhkan. File-file tersebut dimasukkan kedalam direktoti ```data/dwh_config/from_file/[nama_file].yaml```.
-
-Contoh [```data/dwh_config/from_file/csv_1.yaml```](data/dwh_config/from_file/csv_1.yaml)
-
-```
-file_name: 'mentor.csv'
-format: 'csv'
-table_id: 'dim_mentor'
-schema: [
-  {'name': 'id', 'type': 'STRING', 'mode': 'REQUIRED'},
-  {'name': 'first_name', 'type': 'STRING'},
-  {'name': 'last_name', 'type': 'STRING'}
-]
-```
-
-Sedangkan ntuk data-source yang berasal dari database postgres, dimasukkan ke dalam direktori ```data/dwh_config/from_db/[nama_file].yaml```.
-
-Contoh ```data/dwh_config/from_db/db.yaml```. Jika ada dua file bisa menambahkan ```db_2.yaml```, dsb. File yaml tersebut berisi parameter yang dibutuhkan pada fungsi yang dibuat sebelumnya.
-
-```
-table_id: 'fact_course_enrollment'
-schema: [
-  {'name': 'student_id', 'type': 'STRING', 'mode': 'REQUIRED'},
-  {'name': 'course_id', 'type': 'STRING', 'mode': 'REQUIRED'}
-]
-```
-
-Untuk konfigurasi atau parameter yang dibutuhkan di script ```etl_to_datamart.py```, perlu membuat tambahan file .sql untuk mendefinisikan query, karena table datamart berasal dari table-table di dwh. File .yaml dan .sql dimasukkan ke dalam direktori ```data/datamart_config/[nama_table_datamart]/[nama_file]```. Format untuk nama file nya adalah ```config.yaml``` dan ```query.sql```, sedangkan untuk nama direktorinya disesuaikan dengan nama table yang akan dibuat di datamart.
-Contoh
-
-```
-data/datamart_config/course_enrollment_summary/config.yaml
-data/datamart_config/course_enrollment_summary/query.yaml
-```
-untuk file lengkapnya bisa dilihat pada [config](data/datamart_config/course_enrollment_summary/config.yaml) dan [query](data/datamart_config/course_enrollment_summary/query.yaml).
-
-### 5. Running Airflow in Docker
-
-Untuk memulai airflow bisa melihat dokumentasi [Running Airflow in Docker](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
-
-Pertama, fetch docker-compose.yaml
-```
-curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.8.0/docker-compose.yaml'
-```
-![fetch](imgs/fetch.png)
-
-Lalu buat folder-folder yang dibutuhkan airflow
-```
-mkdir -p ./dags ./logs ./plugins ./config
-echo -e "AIRFLOW_UID=$(id -u)" > .env
-```
-Set ```AIRFLOW_UID```
-```
-AIRFLOW_UID=50000
-```
-Selanjutnya inisialisasi database
-```
-docker compose up airflow-init
-```
-Akan muncul pesan berikut setelah inisialisasi
-![init-airflow](imgs/init.png)
-
-### 6. Modify docker compose sesuai kebutuhan
-
-Pada [docker-compose.yaml](docker-compose.yaml) bagian volumes di line 72, tambahkan ```${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data```
-
-TIPS: ```AIRFLOW__CORE__LOAD_EXAMPLES``` pada line 62 set ke ```'false'``` agar example DAG ariflow tidak muncul.
-
-### 7. Buat script DAG
-
-Buat 2 script DAG pada direktori dags yang telah dibuat sebelumnya. Satu untuk task ke dwh dan satu lagi untuk task ke datamart
-
-DAG pada script tersebut dapat disesuaikan start_date dan schedulenya sesuai kebutuhan
-```
-with DAG (
-    'dag_etl_to_dwh',
-    description='ETL to dataset dwh in Bigquery',
-    schedule_interval='0 1 * * *',
-    start_date=datetime(2024, 1, 8),
-    # catchup=False
-) as dag:
-```
-```
-with DAG (
-    'dag_etl_to_datamart',
-    description='Create datamart from dwh in BigQuery',
-    schedule_interval='0 2 * * *',
-    start_date=datetime(2024, 1, 8),
-    # catchup=False
-) as dag:
-```
-Script lengkapnya bisa dilihat di [dag_etl_to_dwh.py](dags/dag_etl_to_dwh.py) dan [dag_etl_to_datamart.py](dags/dag_etl_to_datamart.py)
-
-### 8. Jalankan docker compose
 ```
 docker compose up -d
 ```
-lalu buka ```localhost:8080``` untuk mengakses airflow. 
+
+Then open `localhost:8080` to access Airflow.
 ```
 Username: airflow
 Password: airflow
 ```
 ![airflow](imgs/airflow.png)
 
-### 9. Set connection pada airflow
-
-Buka ```Admin >> Connecitons``` pada UI airflow, lalu tambah connection. Pada project ini terdapat 2 connections, yaitu ```to_bq``` untuk koneksi ke bigquery dan ```pg_conn``` untuk koneksi ke database postgres.
+Next, set up connections in Airflow. Go to `Admin >> Connections` in the Airflow UI, then add a connection. In this project, there are 2 connections, `to_bq` for connecting to BigQuery and `pg_conn` for connecting to the PostgreSQL database.
 ![to_bq](imgs/conn.png)
+
+
 ![pg_conn](imgs/pg_conn.png)
 
-### 10. Jalankan DAG 
-TIPS: biarkan DAG running sesuai jadwal. jangan jalankan DAG secara manual agar ExternalTaskSensor bisa aktif secara otomatis.
+Then run the DAG.
 
-Pertama, aktifkan DAG ```dag_etl_to_dwh``` dan tunggu sampai statusnya success. Setelah itu aktifkan DAG ```dag_etl_to_datamart``` dan secara otomatis ExternalTaskSensor akan running karena status task pada DAG ```dag_etl_to_dwh``` sudah success, sesuai dengan yang diinput pada script dag_etl_to_datamart, ```allowed_states=['success']```
+TIPS: Let the DAG run according to the schedule. Do not manually run the DAG so that the ExternalTaskSensor can activate automatically.
+
+First, activate the DAG `dag_etl_to_dwh` and wait until its status is success. After that, activate the DAG `dag_etl_to_datamart` and the `ExternalTaskSensor` will run automatically because the task status in the DAG `dag_etl_to_dwh` is already success, as specified in the script for dag_etl_to_datamart, `allowed_states=['success']`.
 ```
 task_wait_ext_task = ExternalTaskSensor(
     task_id=f"wait_{ext_task_depen['dag_id']}_{ext_task_depen['task_id']}",
@@ -164,9 +65,11 @@ task_wait_ext_task = ExternalTaskSensor(
 ```
 
 ![dwh](imgs/dag-dwh.png)
+
+
 ![datamart](imgs/dag-datamart.png)
 
-### 11. Cek table di BigQuery
+Cek tables in BigQuery
 
 Dataset dwh
 ![dwh](imgs/dwh.png)
@@ -174,26 +77,11 @@ Dataset dwh
 Dataset datamart
 ![datamart](imgs/datamart.png)
 
-### 12. Buka Looker Studio untuk membuat visualisasi
+To view the visualization results (dashboard), you can access the following link: [Looker Studio](https://lookerstudio.google.com/reporting/7b4f543d-1a82-4d73-a124-0cfb29a7e5a9/page/h81mD)
 
-Looker Studio dapat di akses melalui [```https://lookerstudio.google.com/```](https://lookerstudio.google.com/)
+## Author
+- Yoga Martafian [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/artasaurrus)
 
-Buat laporan baru lalu import table ```course_enrollment_summary``` yang sudah di buat oleh task DAG sebelumnya di BigQuery
+- Karno [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/Karnopunta)
 
-![capstone](imgs/capstone.png)
-
-Buat grafik sesuai kebutuhan
-
-Students per City
-![per-city](imgs/per-city.png)
-
-Top Mentor
-![mentor](imgs/mentor.png)
-
-Students per Course Category
-![per-course-category](imgs/per-course-category.png)
-
-### 13. Buat git ignore
-Buat file .gitignore agar file atau folder yang tidak diinginkan tidak terpush ke github
-
-
+- Muhammad Rifa [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/rifa8)
