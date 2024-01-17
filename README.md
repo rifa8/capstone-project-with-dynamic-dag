@@ -17,10 +17,9 @@ Therefore, the information that has been stored in different sources to date is 
 ![Docker Badge](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat-square)
 ![Cloud-Shell](https://img.shields.io/badge/Cloud-Shell-blue?logo=googlecloud)
 ![Phyton](https://img.shields.io/badge/Phyton-white?logo=python)
-![Postgres](https://img.shields.io/badge/Postgres-white?logo=postgresql)
-
-![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=for-the-badge)
-![Google BigQuery Badge](https://img.shields.io/badge/Google%20BigQuery-669DF6?logo=googlebigquery&logoColor=fff&style=for-the-badge)
+![Postgres](https://img.shields.io/badge/Postgres-blue?logo=postgresql&logoColor=white)
+![Airflow](https://img.shields.io/badge/Airflow-green?logo=apacheairflow&logoColor=white)
+![Google_BigQuery_Badge](https://img.shields.io/badge/BigQuery-white?logo=googlebigquery)
 
 ## ERD
 ![ERD](imgs/erd.png)
@@ -78,7 +77,7 @@ Dataset dwh
 Dataset datamart
 ![datamart](imgs/datamart.png)
 
-To view the visualization results (dashboard), you can access the following link: [Looker Studio](https://lookerstudio.google.com/reporting/7b4f543d-1a82-4d73-a124-0cfb29a7e5a9/page/h81mD)
+To view the visualization results [(dashboard)](visualization/Project-Team-D.pdf), you can also access the following link: [Looker Studio](https://lookerstudio.google.com/reporting/7b4f543d-1a82-4d73-a124-0cfb29a7e5a9/page/h81mD)
 
 ## Author
 - Yoga Martafian [![Github Badge](https://img.shields.io/badge/Github-black?logo=github)](https://github.com/artasaurrus)
